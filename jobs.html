@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - Craigslist</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="index.html"><img src="logo.png" alt="Craigslist"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <a class="nav-item nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
+                <a class="nav-item nav-link" href="#"><i class="fa-solid fa-file"></i> About Us</a>
+                <a class="nav-item nav-link" href="Account.html" id="account-link"><i class="fa-solid fa-user"></i> Account</a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Left Section: Categories (Collapsible) -->
+            <div class="col-lg-2" id="categoriesColumn">
+                <div class="categories-section p-3">
+                    <button id="toggleCategories" class="btn btn-link w-100 text-start">
+                        <i class="fa-solid fa-chevron-down"></i> Job Categories
+                    </button>
+                    <div id="categoriesContent" class="mt-2">
+                        <ul class="list-group">
+                            <li class="list-group-item" data-category="accounting">Accounting & Finance</li>
+                            <li class="list-group-item" data-category="admin">Admin & Office</li>
+                            <li class="list-group-item" data-category="arch">Architecture & Engineering</li>
+                            <li class="list-group-item" data-category="art">Art & Media</li>
+                            <li class="list-group-item" data-category="biotech">Biotech & Science</li>
+                            <li class="list-group-item" data-category="business">Business & Management</li>
+                            <li class="list-group-item" data-category="customer">Customer Service</li>
+                            <li class="list-group-item" data-category="education">Education</li>
+                            <li class="list-group-item" data-category="food">Food & Hospitality</li>
+                            <li class="list-group-item" data-category="general">General Labor</li>
+                            <li class="list-group-item" data-category="government">Government</li>
+                            <li class="list-group-item" data-category="healthcare">Healthcare</li>
+                            <li class="list-group-item" data-category="hr">Human Resources</li>
+                            <li class="list-group-item" data-category="it">IT & Tech</li>
+                            <li class="list-group-item" data-category="legal">Legal</li>
+                            <li class="list-group-item" data-category="manufacturing">Manufacturing</li>
+                            <li class="list-group-item" data-category="marketing">Marketing & PR</li>
+                            <li class="list-group-item" data-category="nonprofit">Nonprofit</li>
+                            <li class="list-group-item" data-category="realestate">Real Estate</li>
+                            <li class="list-group-item" data-category="retail">Retail</li>
+                            <li class="list-group-item" data-category="sales">Sales</li>
+                            <li class="list-group-item" data-category="security">Security</li>
+                            <li class="list-group-item" data-category="skilled">Skilled Trade</li>
+                            <li class="list-group-item" data-category="software">Software Development</li>
+                            <li class="list-group-item" data-category="systems">Systems & Networking</li>
+                            <li class="list-group-item" data-category="transport">Transportation</li>
+                            <li class="list-group-item" data-category="writing">Writing & Editing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section: Filters and Products -->
+            <div class="col-lg-10" id="productsColumn">
+                <h2>Job Listings</h2>
+
+                <!-- Filter and Sort Section -->
+                <div class="filter-sort-section p-4 mb-4">
+                    <div class="filter-header">
+                        <h4>Filters</h4>
+                        <button id="toggleFilters" class="btn btn-link">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div id="filtersContent">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="salaryRange">Salary Range</label>
+                                <input type="range" id="salaryRange" class="form-range" min="0" max="200000" step="1000">
+                                <p>Salary: $<span id="salaryValue">0 - 200,000</span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="jobType">Job Type</label>
+                                <select id="jobType" class="form-select">
+                                    <option value="all">All Types</option>
+                                    <option value="fulltime">Full-time</option>
+                                    <option value="parttime">Part-time</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="temporary">Temporary</option>
+                                    <option value="internship">Internship</option>
+                                    <option value="remote">Remote</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="sortBy">Sort By</label>
+                                <select id="sortBy" class="form-select">
+                                    <option value="salaryLowHigh">Salary: Low to High</option>
+                                    <option value="salaryHighLow">Salary: High to Low</option>
+                                    <option value="dateNewOld">Date: Newest First</option>
+                                    <option value="dateOldNew">Date: Oldest First</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label for="experienceLevel">Experience Level</label>
+                                <select id="experienceLevel" class="form-select">
+                                    <option value="all">All Levels</option>
+                                    <option value="entry">Entry Level</option>
+                                    <option value="mid">Mid Level</option>
+                                    <option value="senior">Senior Level</option>
+                                    <option value="executive">Executive</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="educationLevel">Education Required</label>
+                                <select id="educationLevel" class="form-select">
+                                    <option value="all">Any</option>
+                                    <option value="none">None</option>
+                                    <option value="highschool">High School</option>
+                                    <option value="associate">Associate Degree</option>
+                                    <option value="bachelor">Bachelor's Degree</option>
+                                    <option value="master">Master's Degree</option>
+                                    <option value="phd">PhD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="dynamicFilters">
+                            <!-- Dynamic filters will be inserted here based on the selected category -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Cards -->
+                <div class="row" id="jobList">
+                    <!-- Job cards will be dynamically inserted here -->
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Copyright @CraigsList
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="jobs.js"></script>
+  <script>
+    // Update the navbar based on login status
+    function updateNavBar() {
+        const savedIsLoggedIn = localStorage.getItem('isLoggedIn');
+        const savedCurrentUser = localStorage.getItem('currentUser');
+        
+        // Check if the user is logged in
+        if (savedIsLoggedIn === 'true') {
+            document.getElementById('account-link').innerHTML = `<i class="fa-solid fa-user"></i> ${savedCurrentUser}`;
+        } else {
+            document.getElementById('account-link').innerHTML = `<i class="fa-solid fa-user"></i> Account`;
+        }
+    }
+
+    // Check login status on page load
+    window.onload = function() {
+        updateNavBar();
+        
+        const savedIsLoggedIn = localStorage.getItem('isLoggedIn');
+        const savedCurrentUser = localStorage.getItem('currentUser');
+
+        // If the user is logged in, update the UI to show user info
+        if (savedIsLoggedIn === 'true' && savedCurrentUser) {
+            isLoggedIn = true;
+            currentUser = savedCurrentUser;
+            showUserInfo();
+        } else {
+            // If not logged in, show the login/signup form
+            document.getElementById('login-signup-form').style.display = 'block';
+            document.getElementById('user-info').style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+
+</html>
